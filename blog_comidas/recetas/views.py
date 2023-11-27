@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse #, reverse_lazy
-#from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.urls import reverse , reverse_lazy
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from recetas.forms import CursoFormulario, RecetaFormulario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -195,31 +195,31 @@ def editar_receta(request, id):
             )    
 
 
-#class TodasListView(ListView):
-#    model = Todas
-#    template_name= 'recetas/lista_recetas.html'
+class TodasListView(ListView):
+    model = Todas
+    template_name= 'recetas/lista_recetas.html'
 
 
-#class TodasCreateView(CreateView):
-#    model = Todas
-#    fields= ("titulo", "tipo") 
-#    success_url= reverse_lazy ('lista_recetas')
+class TodasCreateView(CreateView):
+    model = Todas
+    fields= ("titulo", "tipo") 
+    success_url= reverse_lazy ('lista_recetas')
 
 
-#class TodasDetailView(DetailView):
-#    model = Todas
-#    success_url= reverse_lazy ('lista_recetas')
+class TodasDetailView(DetailView):
+    model = Todas
+    success_url= reverse_lazy ('lista_recetas')
 
 
-#class TodasUpdateView(UpdateView):
-#    model = Todas
-#    fields= ("titulo", "tipo") 
-#    success_url= reverse_lazy ('lista_recetas')    
+class TodasUpdateView(UpdateView):
+    model = Todas
+    fields= ("titulo", "tipo") 
+    success_url= reverse_lazy ('lista_recetas')    
 
 
-#class TodasDeleteView(DeleteView):
-#    model = Todas
-#    success_url= reverse_lazy ('lista_recetas')
+class TodasDeleteView(DeleteView):
+    model = Todas
+    success_url= reverse_lazy ('lista_recetas')
 
 def about_us(request):
     contexto={}

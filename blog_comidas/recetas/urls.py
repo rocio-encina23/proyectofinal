@@ -2,9 +2,9 @@ from django.urls import path
 
 from recetas.views import (
     about_us,listar_recetas, listar_cursos, crear_curso, buscar_cursos,eliminar_curso,editar_curso,
-    crear_receta, buscar_receta, eliminar_receta,editar_receta)
-    #TodasListView, TodasCreateView, TodasDeleteView,TodasDetailView,TodasUpdateView ) #crear_receta
-#)
+    crear_receta, buscar_receta, eliminar_receta,editar_receta,
+    TodasListView, TodasCreateView, TodasDeleteView,TodasDetailView,TodasUpdateView )
+
 from .views import *
 from .models import *
 
@@ -25,9 +25,9 @@ urlpatterns = [
     path('eliminar-receta/<int:id>/', eliminar_receta, name='eliminar_receta'),
     path('editar-receta/<int:id>/', editar_receta, name='editar_receta'),
 
-    #path('recetas/', TodasListView.as_view(), name='lista_recetas'),
-    #path("receta/<int:pk>/", TodasDetailView.as_view(), name="ver_receta"),
-    #path("crear-receta/", TodasCreateView.as_view(), name="crear_receta"),
-    #path("editar-receta/<int:pk>/", TodasUpdateView.as_view(), name="editar_receta"),
-    #path("eliminar-receta/<int:pk>/", TodasDeleteView.as_view(), name="eliminar_receta"),
+    path('recetas/', TodasListView.as_view(), name='lista_recetas'),
+    path("receta/<int:pk>/", TodasDetailView.as_view(), name="ver_receta"),
+    path("crear-receta/", TodasCreateView.as_view(), name="crear_receta"),
+    path("editar-receta/<int:pk>/", TodasUpdateView.as_view(), name="editar_receta"),
+    path("eliminar-receta/<int:pk>/", TodasDeleteView.as_view(), name="eliminar_receta"),
 ]
