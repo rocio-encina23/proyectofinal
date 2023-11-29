@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}
+<title> Libros Recomendados </title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 style="color:darkorange;">
+  Libros
+</h1>
+
+<a href="{% url 'libro_recomendado' %}" </a>
+
+<br><br>
+<table class="table table-striped table-bordered">
+  <thead>
+      <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th></th>
+      <th></th>
+</tr>
+<tbody>
+    {% for libro in libro %}
+    <tr>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.autor }}</td>
+      <td>
+       </td>
+      <td>        
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</tfoot>
+</table>
+{% endblock contenido %}

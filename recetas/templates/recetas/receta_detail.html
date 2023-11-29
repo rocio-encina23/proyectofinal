@@ -1,0 +1,17 @@
+{% block contenido %}
+
+<h1>Detalles de la receta</h1>
+
+<p>
+  <strong>Titulo:</strong> {{object.titulo}}
+</p>
+<p>
+  <strong>Tipo:</strong> {{object.tipo}}
+
+</p>
+
+<br>
+<a href="{% url 'lista_recetas' %}">Volver lista</a>
+<a href="{% url 'editar_receta' object.id %}">Editar</a>
+
+{% endblock contenido %}

@@ -1,0 +1,23 @@
+
+
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Cocinando con Ro- Inicio</title>
+{% endblock titulo %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+<h1>Bienvenido/a {{ user.first_name }} Cocinemos Juntos!!</h1>
+<div>
+    <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
+   
+</div>
+{% else %}
+<h1>Bienvenido/a visitante, ¿ Cocinamos Juntos?</h1>
+{% endif %}
+{% endblock contenido %}
+
+
+
+
