@@ -232,13 +232,17 @@ def about_us(request):
 
 
 def libro_recomendado(request):
-    libro={
-        'titulo': 'Apuntes de cocina ',
-        'autor': 'Ximena Saenz',
-        'imagen': 'assets/imagen1.jpg',
-        }
-    return render (
-    request= request,
-    template_name= 'recetas/libro_recomendado.html',
-    context={'libro':'libro'}
+    contexto={
+    "libros":Libro.objects.all(),
+             }        
+       
+    http_response= render (
+        request= request,
+        template_name= 'recetas/libro_recomendado.html',
+        context= contexto,
     )
+    return http_response
+
+
+
+

@@ -6,9 +6,9 @@
 {% endblock titulo %}
 
 {% block contenido %}
-<h3 style="color:purple;"> Recetas </h3>
+<h1 style="color: darkgreen;"> Recetas </h1>
 
-</h1>
+
 <a href="{% url 'lista_recetas' %}">Ver todas</a>
 <a href="{% url 'crear_receta' %}">Crear receta</a> 
 <br><br>
@@ -25,18 +25,20 @@
       <th>ID</th>
       <th>Titulo</th>
       <th>Acciones</th>
-  
+
   </tr>
     </thead>
     <tbody>
-      {% for recetas in recetas %}
-      
+      {% for recetas in recetas %}      
         <td>{{ recetas.id }}</td>
-        <td>{{ recetas.titulo }}</td>
-        
+        <td>{{ recetas.titulo }}</td>        
         <td>
          {% if user == receta.creador %}
           <a class="btn btn-link" href="{% url 'editar_receta' recetas.id %}">Editar</a>
+          {% endif %}
+</td>
+      <td>
+          {% if user == receta.creador %}
           <form action="{% url 'eliminar_receta' recetas.id %}" method="post">
             {% csrf_token %}
             <input type="submit" class="btn btn-link" value="eliminar"/>
