@@ -61,14 +61,14 @@ def crear_curso(request):
             url_exitosa = reverse('lista_cursos')  
             return redirect(url_exitosa)
     else:  # GET
-        # Descargar formulario inicial
         formulario = CursoFormulario()
-    return render(
+    http_response= render (
         request=request,
-        template_name='recetas/formulario_curso.html',
+        template_name= 'recetas/formulario_curso.html',
         context={'formulario': formulario}
     )
-
+    return http_response
+   
 
 def buscar_cursos(request):
     if request.method == "POST":
@@ -164,29 +164,29 @@ def buscar_receta(request):
     
 @login_required
 def eliminar_receta(request,id):
-    receta = Todas.objects.get(id=id)
+    todas = Todas.objects.get(id=id)
     if request.method == "POST":
-        receta.delete()
+        todas.delete()
         url_exitosa = reverse('lista_recetas')
         return redirect(url_exitosa)
 
 @login_required
 def editar_receta(request, id):  
-    receta = Todas.objects.get(id=id)
+    todas = Todas.objects.get(id=id)
     if request.method == "POST":
        formulario = RecetaFormulario(request.POST)
 
     if formulario.is_valid():
             data = formulario.cleaned_data
-            receta.titulo = data['titulo']
-            receta.save()
+            todas.titulo = data['titulo']
+            todas.save()
 
             url_exitosa = reverse('lista_recetas')
             return redirect(url_exitosa)
     else:  # GET
         
         inicial = {
-            'titulo': receta.titulo,
+            'titulo': todas.titulo,
             }
         formulario = RecetaFormulario(initial=inicial)
     return render(
