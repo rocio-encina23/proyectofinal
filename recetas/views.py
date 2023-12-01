@@ -150,10 +150,8 @@ def buscar_receta(request):
         data = request.POST
         busqueda = data["busqueda"]
         # Filtro simple
-        recetas= Todas.objects.filter(
-            Q (nombre__contains=busqueda)
-        )
-      
+        recetas= Todas.objects.filter(titulo__contains=busqueda)
+        
         contexto = {
             "recetas": recetas,
         }
