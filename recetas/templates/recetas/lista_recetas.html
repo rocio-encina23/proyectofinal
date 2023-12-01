@@ -6,11 +6,11 @@
 {% endblock titulo %}
 
 {% block contenido %}
-<h1 style="color: deepPink;"> Recetas </h1>
+<h1 style="color: purple;"> Recetas </h1>
 
 
-<a href="{% url 'lista_recetas' %}">Ver todas</a>
-<a href="{% url 'crear_receta' %}">Crear receta</a> 
+<a href="{% url 'lista_recetas' %}"style="color: hotpink;">Ver todas</a>
+<a href="{% url 'crear_receta' %}"style="color: hotpink;">Crear receta</a> 
 <br><br>
 <form action="{% url 'buscar_receta'%}" method="post">
   {% csrf_token %}
@@ -25,7 +25,6 @@
       <th>ID</th>
       <th>Titulo</th>
       <th>Acciones</th>
-
   </tr>
     </thead>
     <tbody>
@@ -34,9 +33,9 @@
         <td>{{ recetas.titulo }}</td>        
         <td>
          {% if user == receta.creador %}
-          <a class="btn btn-link" href="{% url 'editar_receta' recetas.id %}">Editar</a>
+          <a class="btn btn-link" href="{% url 'editar_receta' recetas.id%}">Editar</a>
           {% endif %}
-</td>
+        </td>
       <td>
           {% if user == receta.creador %}
           <form action="{% url 'eliminar_receta' recetas.id %}" method="post">

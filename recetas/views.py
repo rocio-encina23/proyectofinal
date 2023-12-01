@@ -23,7 +23,7 @@ def listar_recetas (request):
     
 def listar_cursos (request):
     contexto= {
-    "cursos":Curso.objects.all(),
+        "cursos":Curso.objects.all(),
             
     }    
     http_response= render (
@@ -97,7 +97,7 @@ def eliminar_curso(request,id):
         return redirect(url_exitosa)
 
 @login_required
-def editar_curso(request, id):  
+def editar_curso(request,id):  
     curso = Curso.objects.get(id=id)
     if request.method == "POST":
        formulario = CursoFormulario(request.POST)
@@ -130,8 +130,8 @@ def crear_receta(request):
         if formulario.is_valid():
             data = formulario.cleaned_data  #diccionario
             titulo = data["titulo"]
-            receta = receta(titulo=titulo, creador=request.user)
-            titulo.save()
+            todas = Todas(titulo=titulo, creador=request.user)
+            todas.save()
 
             url_exitosa = reverse('lista_recetas')  
             return redirect(url_exitosa)

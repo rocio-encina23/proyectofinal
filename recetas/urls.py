@@ -1,7 +1,7 @@
 from django.urls import path 
 
 from recetas.views import (
-    about_us,listar_recetas, listar_cursos, crear_curso, buscar_cursos,eliminar_curso,editar_curso,
+    about_us,listar_recetas, listar_cursos, crear_curso, buscar_cursos,eliminar_curso, editar_curso,
     crear_receta, buscar_receta, eliminar_receta,editar_receta,
     TodasListView, TodasCreateView, TodasDeleteView,TodasDetailView,TodasUpdateView )
 
@@ -18,7 +18,7 @@ urlpatterns = [
     path('crear-curso/',crear_curso, name="crear_curso"),
     path('buscar-cursos/', buscar_cursos, name="buscar_cursos"),
     path("eliminar-curso/<int:id>/", eliminar_curso, name="eliminar_curso"),
-    path("editar-curso/<int:id>/", editar_curso, name="editar_curso"),
+    path("editar-curso/<int:id>/",editar_curso, name="editar_curso"),
     #URL de recetas
     path('crear-receta/', crear_receta, name="crear_receta"),
     path('buscar-receta/', buscar_receta, name='buscar_receta'),
