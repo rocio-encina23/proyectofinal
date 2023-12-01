@@ -76,7 +76,8 @@ def buscar_cursos(request):
         busqueda = data["busqueda"]
         # Filtro simple
         cursos = Curso.objects.filter(nombre__contains=busqueda)
-      
+        
+
         contexto = {
             "cursos": cursos,
         }
@@ -149,7 +150,9 @@ def buscar_receta(request):
         data = request.POST
         busqueda = data["busqueda"]
         # Filtro simple
-        recetas= Todas.objects.filter(nombre__contains=busqueda)
+        recetas= Todas.objects.filter(
+            Q (nombre__contains=busqueda)
+        )
       
         contexto = {
             "recetas": recetas,
