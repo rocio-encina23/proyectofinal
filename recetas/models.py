@@ -24,6 +24,27 @@ class Libro(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class Tragos(models.Model):
+    titulo=models.CharField(max_length=64)
+    articulo=models.CharField(max_length=400)
+    ingredientes= models.TextField(blank=False, null=False)
+    pasos= models.TextField(blank=False, null=False)
+    imagenLibro = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+
+    def __str__(self):
+        return self.titulo
+
+   
+class Huerta(models.Model):
+    titulo=models.CharField(max_length=64)
+    autor=models.CharField(max_length=64)
+    articulo=models.CharField(max_length=400)
+    imagenLibro = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+
+    def __str__(self):
+        return self.titulo
+    
    
 class Saladas(models.Model):
      titulo= models.CharField(max_length=100)

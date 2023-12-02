@@ -2,7 +2,7 @@ from django.urls import path
 
 from recetas.views import (
     about_us,listar_recetas, listar_cursos, crear_curso, buscar_cursos,eliminar_curso, editar_curso,
-    crear_receta, buscar_receta, eliminar_receta,editar_receta,
+    crear_receta, buscar_receta, eliminar_receta,editar_receta,huerta_organica,listar_tragos,
     TodasListView, TodasCreateView, TodasDeleteView,TodasDetailView,TodasUpdateView )
 
 from .views import *
@@ -12,7 +12,7 @@ from .models import *
 # Son las URLS de la app 
 urlpatterns = [
     #URL Cursos
-    path('about-us', about_us, name="about-us" ),
+    path('about-us/', about_us, name="about-us" ),
     path('recetas/', listar_recetas, name="lista_recetas"),
     path('cursos/', listar_cursos, name="lista_cursos"),
     path('crear-curso/',crear_curso, name="crear_curso"),
@@ -25,6 +25,8 @@ urlpatterns = [
     path('eliminar-receta/<int:id>/', eliminar_receta, name='eliminar_receta'),
     path('editar-receta/<int:id>/', editar_receta, name='editar_receta'),
     path('libros-recomendados/', libro_recomendado, name="libro_recomendado"),
+    path('huerta-organica/', huerta_organica, name="huerta_organica"),
+    path("tragos/", listar_tragos, name="lista_tragos"),
 
     path('recetas/', TodasListView.as_view(), name='lista_recetas'),
     path("receta/<int:pk>/", TodasDetailView.as_view(), name="ver_receta"),

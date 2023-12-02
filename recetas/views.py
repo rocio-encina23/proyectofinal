@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from django.db.models import Q
 
-from recetas.models import Todas,Curso
+from recetas.models import Todas,Curso,Huerta,Libro,Tragos
 
 @login_required
 def listar_recetas (request):
@@ -244,6 +244,39 @@ def libro_recomendado(request):
     )
     return http_response
 
+def huerta_organica(request):
+    contexto={
+    "huerta":Huerta.objects.all(),
+             }        
+       
+    http_response= render (
+        request= request,
+        template_name= 'recetas/huerta.html',
+        context= contexto,
+    )
+    return http_response
 
+def tragos(request):
+    contexto={
+    "tragos":Tragos.objects.all(),
+             }        
+       
+    http_response= render (
+        request= request,
+        template_name= 'recetas/lista_tragos.html',
+        context= contexto,
+    )
+    return http_response
 
+def listar_tragos (request):
+    contexto= {
+        "tragos":Tragos.objects.all(),
+            
+    }    
+    http_response= render (
+        request=request,
+        template_name= 'recetas/lista_tragos.html',
+        context=contexto,
+    )
+    return http_response
 
