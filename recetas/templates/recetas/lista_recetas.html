@@ -23,16 +23,21 @@
     <tr>
       <th>ID</th>
       <th>Titulo</th>
-      <th>Acciones</th>
+      <th></th>
+      <th></th>
   </tr>
     </thead>
     <tbody>
       {% for todas in recetas %}      
         <td>{{ todas.id }}</td>
-        <td>{{ todas.titulo }}</td>        
+        <td>{{ todas.titulo }}</td>    
+        <td>{{ todas.ingredientes }}</td>  
+        <td>{{ todas.pasos }}</td>     
         <td>
          {% if user == todas.creador %}
-          <a class="btn btn-link" href="{% url 'editar_receta' todas.id%}">Editar</a>
+         <form action="{% url 'editar_receta' todas.id %}" method="post"></a>
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="Editar"/>
           {% endif %}
         </td>
       <td>

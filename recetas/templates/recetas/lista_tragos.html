@@ -1,9 +1,11 @@
-
 {% extends "base.html" %}
+{% load static %}
 
+<div class= "col-md-6">
+  <img src="{% static 'imagenes/tragos.jpg' %}" style="max-width:300px;">
 {% block contenido %}
 <h1 style="color: purple;"> 
-    Coctel y Tragos
+    Coctels y Tragos
 </h1>
 
 <a href="{% url 'lista_tragos' %}"style="color: hotpink;">Ver todas</a>
@@ -13,20 +15,18 @@
   <table class="table table-striped table-bordered">
     <thead>
     <tr>
-      <th>ID</th>
       <th>Titulo</th>
-      <th></th>
+      <th>Ingredientes</th>
+      <th>Pasos</th>
   </tr>
     </thead>
     <tbody>
       {% for trago in tragos %}      
-        <td>{{ trago.id }}</td>
         <td>{{ trago.titulo }}</td>        
-        <td>
-       </td>
+        <td>{{ trago.ingredientes}}</td>
+        <td>{{ trago.pasos}}</td>
       <td>
-          
-        </td>
+         </td>
       </tr>
       {% endfor %}
     </tbody>

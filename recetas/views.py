@@ -9,7 +9,7 @@ from django.db.models import Q
 
 from recetas.models import Todas,Curso,Huerta,Libro,Tragos
 
-@login_required
+
 def listar_recetas (request):
     contexto= {
     "recetas":Todas.objects.all(),         
@@ -102,7 +102,7 @@ def editar_curso(request,id):
     if request.method == "POST":
        formulario = CursoFormulario(request.POST)
 
-    if formulario.is_valid():
+       if formulario.is_valid():
             data = formulario.cleaned_data
             curso.nombre = data['nombre']
             curso.save()
@@ -176,7 +176,7 @@ def editar_receta(request, id):
     if request.method == "POST":
        formulario = RecetaFormulario(request.POST)
 
-    if formulario.is_valid():
+       if formulario.is_valid():
             data = formulario.cleaned_data
             todas.titulo = data['titulo']
             todas.save()
@@ -271,6 +271,7 @@ def tragos(request):
 def listar_tragos (request):
     contexto= {
         "tragos":Tragos.objects.all(),
+        "imagen": 'imagenes/tragos.jpg',
             
     }    
     http_response= render (

@@ -33,7 +33,9 @@
     <td>{{ curso.nombre }}</td>
     <td>
       {% if user == curso.creador %}
-      <a class="btn btn-link" href="{% url 'editar_curso' curso.id %}">Editar</a>
+      <form action="{% url 'editar_curso' curso.id %}" method="post"></a>
+      {% csrf_token %}
+      <input type="submit" class="btn btn-link" value="Editar"/>
       {% endif %}
     </td>
     <td>        
